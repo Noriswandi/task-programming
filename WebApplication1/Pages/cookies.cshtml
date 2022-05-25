@@ -1,0 +1,32 @@
+﻿@page
+@model WebApplication1.Pages.Shared.IndexModel
+@{
+}
+
+
+<h2>List of Cookies</h2>
+<a class="btn btn-primary btn-sm" href="/addCookies">New Cookies</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var cookies in Model.ListCookies)
+        {
+            <tr>
+                <td>@cookies.ref_ID</td>
+                <td>@cookies.name</td>
+                <td>@cookies.description</td>
+                <td>
+                    <a class="btn btn-primary btn-sm" href="/Cookies/Edit?id=@cookies.ref_ID">Edit</a>
+                    <a class="btn btn-primary btn-sm" href="/Cookies/Delete?id=@cookies.ref_ID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
